@@ -26,6 +26,7 @@ public class ElServicio extends Service {
 	@Override
 	public void onDestroy() {
 		Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show();
+		player.stop();
 	}
 	
 	@Override
