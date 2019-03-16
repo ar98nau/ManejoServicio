@@ -18,4 +18,6 @@
     <string name="BcasMessSo">Intent recibido ElReceptor - Inicio reproducción Sonido</string>
     <string name="BcasMessCan">Intent recibido ElReceptor - Inicio reproducción Canción</string>
     <string name="BcasMessDet">Intent recibido ElReceptor - Detencion reproduccion</string>
+    <string name="BcasMessCan1">Intent recibido ElReceptor - EVENTO DEL SISTEMA- ON</string>
+    <string name="BcasMessDet1">Intent recibido ElReceptor - EVENTO DEL SISTEMA-OFF</string>
 </resources>

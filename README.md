@@ -18,7 +18,7 @@ Primer contacte amb background work.
   * Mandatory
     * - [x] Task A
     * - [x] Task B
-    * - [ ] Task C
+    * - [x] Task C
   * Optional
     * - [ ] Task D
     * - [ ] Task E

@@ -2,17 +2,24 @@ package com.android.mdw.demo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
 public class Main extends Activity implements OnClickListener {
+  ElReceptor receiver;
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+    IntentFilter filter = new IntentFilter(Intent.ACTION_HEADSET_PLUG);
+    receiver = new ElReceptor();
+    this.registerReceiver(receiver, filter);
 
     Button btnInicio = findViewById(R.id.btnInicio);
     Button btnCancion = findViewById(R.id.btnCancion);
