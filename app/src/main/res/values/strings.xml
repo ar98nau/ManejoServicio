@@ -14,4 +14,8 @@
     <string name="mess">mess</string>
     <string name="selectCancion">Iniciar Cancion</string>
     <string name="selectSonido">Iniciar sonido</string>
+    <string name="selectDetencion">Detencion reproduccion</string>
+    <string name="BcasMessSo">Intent recibido ElReceptor - Inicio reproducción Sonido</string>
+    <string name="BcasMessCan">Intent recibido ElReceptor - Inicio reproducción Canción</string>
+    <string name="BcasMessDet">Intent recibido ElReceptor - Detencion reproduccion</string>
 </resources>
