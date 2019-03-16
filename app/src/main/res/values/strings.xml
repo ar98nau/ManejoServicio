@@ -22,4 +22,5 @@
     <string name="BcasMessDet1">Intent recibido ElReceptor - EVENTO DEL SISTEMA-OFF</string>
     <string name="audio">Seleccionar audio</string>
     <string name="rep">reproducir uri</string>
+    <string name="messAudio">Iniciar Cancion via Uri</string>
 </resources>

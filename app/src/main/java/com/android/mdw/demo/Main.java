@@ -3,7 +3,10 @@ package com.android.mdw.demo;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -24,10 +27,26 @@ public class Main extends Activity implements OnClickListener {
     Button btnInicio = findViewById(R.id.btnInicio);
     Button btnCancion = findViewById(R.id.btnCancion);
     Button btnFin = findViewById(R.id.btnFin);
+    Button audioSelec = findViewById(R.id.button1);
+    Button uriSelec = findViewById(R.id.button2);
 
     btnInicio.setOnClickListener(this);
     btnCancion.setOnClickListener(this);
     btnFin.setOnClickListener(this);
+    audioSelec.setOnClickListener(this);
+    uriSelec.setOnClickListener(this);
+  }
+
+  protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    if (resultCode == RESULT_OK){
+      if (requestCode == 0){
+          Uri uri = data.getData();
+          Intent in = new Intent(this, ElServicio.class);
+          in.setData(uri);
+          in.putExtra(getString(R.string.mess), getString(R.string.messAudio));
+          startService(in);
+      }
+    }
   }
 
   public void onClick(View src) {
@@ -55,25 +74,40 @@ public class Main extends Activity implements OnClickListener {
 
 
     // APARTADO B
+//    switch (src.getId()) {
+//    case R.id.btnInicio:
+//      Toast.makeText(this, R.string.select, Toast.LENGTH_LONG).show();
+//      in = new Intent(this, ElReceptor.class);
+//      in.putExtra(getString(R.string.mess), getString(R.string.selectSonido));
+//      sendBroadcast(in);
+//      break;
+//    case R.id.btnCancion:
+//      Toast.makeText(this, R.string.select2, Toast.LENGTH_LONG).show();
+//      in = new Intent(this, ElReceptor.class);
+//      in.putExtra(getString(R.string.mess), getString(R.string.selectCancion));
+//      sendBroadcast(in);
+//      break;
+//    case R.id.btnFin:
+//      Toast.makeText(this, R.string.select3, Toast.LENGTH_LONG).show();
+//      in = new Intent(this, ElReceptor.class);
+//      in.putExtra(getString(R.string.mess), getString(R.string.selectDetencion));
+//      sendBroadcast(in);
+//      break;
+//    }
+
+    // OPTATIVO D
     switch (src.getId()) {
-    case R.id.btnInicio:
-      Toast.makeText(this, R.string.select, Toast.LENGTH_LONG).show();
-      in = new Intent(this, ElReceptor.class);
-      in.putExtra(getString(R.string.mess), getString(R.string.selectSonido));
-      sendBroadcast(in);
-      break;
-    case R.id.btnCancion:
-      Toast.makeText(this, R.string.select2, Toast.LENGTH_LONG).show();
-      in = new Intent(this, ElReceptor.class);
-      in.putExtra(getString(R.string.mess), getString(R.string.selectCancion));
-      sendBroadcast(in);
-      break;
-    case R.id.btnFin:
-      Toast.makeText(this, R.string.select3, Toast.LENGTH_LONG).show();
-      in = new Intent(this, ElReceptor.class);
-      in.putExtra(getString(R.string.mess), getString(R.string.selectDetencion));
-      sendBroadcast(in);
-      break;
+      case R.id.button1:
+        in = new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(in, 0);
+        break;
+      case R.id.button2:
+        in = new Intent(this, ElServicio.class);
+        in.setData(Uri.parse("content://media/external/audio/media/70"));
+        in.putExtra(getString(R.string.mess), getString(R.string.messAudio));
+        startService(in);
+        break;
     }
+
   }
 }

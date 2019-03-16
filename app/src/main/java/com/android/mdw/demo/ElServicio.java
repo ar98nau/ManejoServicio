@@ -3,14 +3,17 @@ package com.android.mdw.demo;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.MediaStore;
 import android.widget.Toast;
 
 public class ElServicio extends Service {
 
 	private MediaPlayer player;
 	private MediaPlayer player1;
+	private MediaPlayer player2; // OPTATIVO D
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -32,6 +35,7 @@ public class ElServicio extends Service {
 		Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show();
 		player.stop();
 		player1.stop();
+		player2.stop();
 	}
 	
 	@Override
@@ -45,6 +49,14 @@ public class ElServicio extends Service {
 			player.start();
 		} else if (so.equals(getString(R.string.selectCancion))) {
 			player1.start();
+
+
+		} else if (so.equals(getString(R.string.messAudio))){
+			// OPTATIVO D
+			Uri audio = intent.getData();
+			player2 = MediaPlayer.create(this, audio);
+			player2.setLooping(true);
+			player2.start();
 		}
 		return startid;
 	}	
