@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-	<TextView  
-	    android:layout_width="match_parent" 
-	    android:layout_height="wrap_content" 
-	    android:text="Utilización de Servicios" 
-	    android:gravity="center" 
-	    android:textSize="20sp" 
-	    android:padding="20dp"/>
-	<LinearLayout  
-		android:layout_width="match_parent" 
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:padding="20dp"
+		android:text="Utilización de Servicios"
+		android:textSize="20sp" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:gravity="center">
-		<Button 
-			android:text="Inicio" 
-			android:id="@+id/btnInicio" 
-			android:layout_width="wrap_content" 
-			android:layout_height="wrap_content">
-		</Button>
-		<Button 
-			android:layout_width="wrap_content" 
+
+		<Button
+			android:id="@+id/btnInicio"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="Detener" 
-			android:id="@+id/btnFin">
-		</Button>		
+			android:text="@string/tono"></Button>
+
+		<Button
+			android:id="@+id/btnCancion"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="0"
+			android:text="@string/cancion" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/btnFin"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="Detener"></Button>
 	</LinearLayout>
 </LinearLayout>
