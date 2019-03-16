@@ -20,4 +20,6 @@
     <string name="BcasMessDet">Intent recibido ElReceptor - Detencion reproduccion</string>
     <string name="BcasMessCan1">Intent recibido ElReceptor - EVENTO DEL SISTEMA- ON</string>
     <string name="BcasMessDet1">Intent recibido ElReceptor - EVENTO DEL SISTEMA-OFF</string>
+    <string name="audio">Seleccionar audio</string>
+    <string name="rep">reproducir uri</string>
 </resources>
