@@ -13,3 +13,12 @@ Fourth MiniActivity of android
 
 ### Description ###
 Primer contacte amb background work.
+
+### Tasks ###
+  * Mandatory
+    * - [x] Task A
+    * - [ ] Task B
+    * - [ ] Task C
+  * Optional
+    * - [ ] Task D
+    * - [ ] Task E
