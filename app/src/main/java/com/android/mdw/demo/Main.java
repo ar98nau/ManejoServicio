@@ -115,6 +115,10 @@ public class Main extends Activity implements OnClickListener {
         in.putExtra(getString(R.string.mess), getString(R.string.messAudio));
         startService(in);
         break;
+      case R.id.btnFin:
+        Toast.makeText(this, R.string.select3, Toast.LENGTH_LONG).show();
+        stopService(new Intent(this, ElServicio.class));
+        break;
     }
 
   }
