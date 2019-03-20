@@ -1,12 +1,16 @@
 package com.android.mdw.demo;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +39,10 @@ public class Main extends Activity implements OnClickListener {
     btnFin.setOnClickListener(this);
     audioSelec.setOnClickListener(this);
     uriSelec.setOnClickListener(this);
+
+    if (Build.VERSION.SDK_INT >= 23)
+      if (! ckeckPermissions())
+        requestPermissions();
   }
 
   protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -109,5 +117,24 @@ public class Main extends Activity implements OnClickListener {
         break;
     }
 
+  }
+
+  private boolean ckeckPermissions() {
+    if (Build.VERSION.SDK_INT >= 23) {
+      if (ActivityCompat.checkSelfPermission(getApplicationContext(),
+              Manifest.permission.READ_EXTERNAL_STORAGE) ==
+              PackageManager.PERMISSION_GRANTED)
+        return true;
+      else
+        return false;
+    }
+    else
+      return true;
+  }
+
+  private void requestPermissions() {
+    ActivityCompat.requestPermissions(Main.this,
+            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+            0);
   }
 }
