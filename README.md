@@ -20,5 +20,5 @@ Primer contacte amb background work.
     * - [x] Task B
     * - [x] Task C
   * Optional
-    * - [ ] Task D
-    * - [ ] Task E
+    * - [x] Task D
+    * - [x] Task E
