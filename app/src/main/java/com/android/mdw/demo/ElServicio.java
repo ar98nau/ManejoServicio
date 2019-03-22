@@ -35,7 +35,9 @@ public class ElServicio extends Service {
 		Toast.makeText(this, R.string.finaserv, Toast.LENGTH_LONG).show();
 		player.stop();
 		player1.stop();
-		player2.stop();
+		try{
+			player2.stop();
+		} catch (Exception e){}
 	}
 	
 	@Override
@@ -53,6 +55,13 @@ public class ElServicio extends Service {
 
 		} else if (so.equals(getString(R.string.messAudio))){
 			// OPTATIVO D
+
+			try{
+				if(player2.isPlaying()) {
+					player2.stop();
+				}
+			} catch (Exception e){}
+
 			Uri audio = intent.getData();
 			player2 = MediaPlayer.create(this, audio);
 			player2.setLooping(true);

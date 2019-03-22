@@ -61,24 +61,24 @@ public class Main extends Activity implements OnClickListener {
     Intent in;
 
     // APARTADO A
-//    switch (src.getId()) {
-//    case R.id.btnInicio:
-//      Toast.makeText(this, R.string.select, Toast.LENGTH_LONG).show();
-//      in = new Intent(this, ElServicio.class);
-//      in.putExtra(getString(R.string.mess), getString(R.string.selectSonido));
-//      startService(in);
-//      break;
-//    case R.id.btnCancion:
-//      Toast.makeText(this, R.string.select2, Toast.LENGTH_LONG).show();
-//      in = new Intent(this, ElServicio.class);
-//      in.putExtra(getString(R.string.mess), getString(R.string.selectCancion));
-//      startService(in);
-//      break;
-//    case R.id.btnFin:
-//      Toast.makeText(this, R.string.select3, Toast.LENGTH_LONG).show();
-//      stopService(new Intent(this, ElServicio.class));
-//      break;
-//    }
+    switch (src.getId()) {
+    case R.id.btnInicio:
+      Toast.makeText(this, R.string.select, Toast.LENGTH_LONG).show();
+      in = new Intent(this, ElServicio.class);
+      in.putExtra(getString(R.string.mess), getString(R.string.selectSonido));
+      startService(in);
+      break;
+    case R.id.btnCancion:
+      Toast.makeText(this, R.string.select2, Toast.LENGTH_LONG).show();
+      in = new Intent(this, ElServicio.class);
+      in.putExtra(getString(R.string.mess), getString(R.string.selectCancion));
+      startService(in);
+      break;
+    case R.id.btnFin:
+      Toast.makeText(this, R.string.select3, Toast.LENGTH_LONG).show();
+      stopService(new Intent(this, ElServicio.class));
+      break;
+    }
 
 
     // APARTADO B
@@ -103,18 +103,22 @@ public class Main extends Activity implements OnClickListener {
 //      break;
 //    }
 
-    // OPTATIVO D
+
     switch (src.getId()) {
+      // OPTATIVO D
       case R.id.button1:
         in = new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(in, 0);
         break;
+
+      // OPTATIVO E
       case R.id.button2:
         in = new Intent(this, ElServicio.class);
         in.setData(Uri.parse("content://media/external/audio/media/70"));
         in.putExtra(getString(R.string.mess), getString(R.string.messAudio));
         startService(in);
         break;
+
       case R.id.btnFin:
         Toast.makeText(this, R.string.select3, Toast.LENGTH_LONG).show();
         stopService(new Intent(this, ElServicio.class));
