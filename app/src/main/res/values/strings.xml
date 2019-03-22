@@ -4,6 +4,7 @@
     <string name="app_name">ManejoServicios</string>
     <string name="iniserv">Servicio Sonido Iniciado</string>
     <string name="iniserv2">Servicio Canción Iniciado</string>
+    <string name="iniserv3">Servicio Canción Iniciado via URI</string>
     <string name="creaserv">Servicio Creado</string>
     <string name="finaserv">Servicio Finalizado</string>
     <string name="cancion">Reproducir canción</string>

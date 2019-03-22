@@ -54,7 +54,8 @@ public class ElServicio extends Service {
 
 
 		} else if (so.equals(getString(R.string.messAudio))){
-			// OPTATIVO D
+			// OPTATIVO D i E
+			Toast.makeText(this, R.string.iniserv3, Toast.LENGTH_LONG).show();
 
 			try{
 				if(player2.isPlaying()) {

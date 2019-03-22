@@ -12,6 +12,7 @@ public class ElReceptor extends BroadcastReceiver {
         intent.setClass(context, ElServicio.class);
 
         if (intent.getAction() == null) {
+            //APARTADO B
             Bundle data = intent.getExtras();
             String so = data.getString(context.getString(R.string.mess));
 
@@ -26,6 +27,7 @@ public class ElReceptor extends BroadcastReceiver {
                 context.stopService(intent);
             }
         } else {
+            //APARTADO C
             if (intent.getAction().equals("android.intent.action.HEADSET_PLUG")) {
                 if (intent.getIntExtra("state", 0) == 1){
                     Toast.makeText(context, R.string.BcasMessCan1, Toast.LENGTH_LONG).show();
